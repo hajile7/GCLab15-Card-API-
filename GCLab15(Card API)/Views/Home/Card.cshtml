@@ -1,0 +1,11 @@
+﻿@model CardModel;
+
+<h1>You drew:</h1>
+@{
+    foreach (Card c in Model.Cards)
+    {
+        <h2>@c.Value of @c.Suit</h2>
+        <br/>
+        <img src = @c.Image />
+    }
+}
