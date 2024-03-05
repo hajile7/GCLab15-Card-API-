@@ -1,5 +1,6 @@
 using GCLab15_Card_API_.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
 
 namespace GCLab15_Card_API_.Controllers
@@ -25,6 +26,10 @@ namespace GCLab15_Card_API_.Controllers
         public IActionResult Card()
         {
             CardModel result = CardDAL.GetCard();
+            if (result.Remaining == 0)
+            {
+                CardDAL.Shuffle();
+            }
             return View(result);
         }
 

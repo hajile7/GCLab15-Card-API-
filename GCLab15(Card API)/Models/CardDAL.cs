@@ -28,5 +28,11 @@ namespace GCLab15_Card_API_.Models
             CardModel result = JsonConvert.DeserializeObject<CardModel>(JSON);
             return result;
         }
+        public static void Shuffle()
+        {
+            string url = "https://deckofcardsapi.com/api/deck/rfvhshqh9bzz/shuffle/";
+            HttpWebRequest request = WebRequest.CreateHttp(url);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+        }
     }
 }
